@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Money Mentor</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>💰 AI Mentor</h2>
+<ul>
+<li class="active">Dashboard</li>
+<li onclick="scrollToSection('financialSection')">FIRE Planner</li>
+<li onclick="scrollToSection('lifeSection')">Life Advisor</li>
+<li onclick="scrollToSection('taxSection')">Tax Wizard</li>
+<li onclick="scrollToSection('coupleSection')">Couple Planner</li>
+</ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="header">
+<h1>Welcome 👋</h1>
+<p>Your AI-powered financial mentor</p>
+</div>
+
+<!-- TOP CARDS -->
+<div class="top-cards">
+
+<div class="card">
+<h3>FIRE Path Planner</h3>
+<button onclick="scrollToSection('financialSection')">Start Planning</button>
+</div>
+
+<div class="card">
+<h3>Life Event Advisor</h3>
+<button onclick="scrollToSection('lifeSection')">Get Advice</button>
+</div>
+
+<div class="card">
+<h3>Tax Wizard</h3>
+<button onclick="scrollToSection('taxSection')">Calculate</button>
+</div>
+
+</div>
+
+<!-- FINANCIAL INPUT -->
+<div class="card full" id="financialSection">
+<h2>Enter Financial Details</h2>
+<input type="number" id="age" placeholder="Age">
+<input type="number" id="income" placeholder="Monthly Income">
+<input type="number" id="expenses" placeholder="Monthly Expenses">
+<input type="number" id="debt" placeholder="Debt">
+<button onclick="generatePlan()">Generate Plan</button>
+</div>
+
+<!-- RESULT -->
+<div class="card full">
+<h2>📊 Financial Report</h2>
+<div id="result">Your analysis will appear here.</div>
+</div>
+
+<!-- LIFE EVENT -->
+<div class="card full" id="lifeSection">
+<h2>Life Event Advisor</h2>
+<select id="eventType">
+<option value="bonus">Bonus</option>
+<option value="marriage">Marriage</option>
+<option value="baby">New Baby</option>
+<option value="inheritance">Inheritance</option>
+</select>
+<input type="number" id="eventIncome" placeholder="Income">
+<input type="number" id="eventSavings" placeholder="Savings">
+<input type="number" id="eventDebt" placeholder="Debt">
+<button onclick="lifeEventAdvice()">Get Advice</button>
+<div id="lifeEventResult"></div>
+</div>
+
+<!-- TAX -->
+<div class="card full" id="taxSection">
+<h2>Tax Wizard</h2>
+<input type="number" id="salary" placeholder="Salary">
+<input type="number" id="deductions" placeholder="Deductions">
+<button onclick="taxWizard()">Calculate</button>
+<div id="taxResult"></div>
+</div>
+
+<!-- COUPLE -->
+<div class="card full" id="coupleSection">
+<h2>Couple Planner</h2>
+<input type="number" id="income1" placeholder="Partner 1 Income">
+<input type="number" id="income2" placeholder="Partner 2 Income">
+<input type="number" id="coupleExpenses" placeholder="Expenses">
+<button onclick="couplePlanner()">Generate</button>
+<div id="coupleResult"></div>
+</div>
+
+<!-- CHAT -->
+<div class="card full">
+<h2>💬 AI Chat</h2>
+<div id="chatBox" class="chat-box"></div>
+<input type="text" id="chatInput" placeholder="Ask AI...">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
