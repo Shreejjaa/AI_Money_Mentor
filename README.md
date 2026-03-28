@@ -107,7 +107,7 @@ http://127.0.0.1:3002
 
 ## 👥 Team
 
-This project was built as part of a hackathon by a collaborative team.
+This project was built for ET Gen AI Hackathon by a collaborative team.
 
 Contributors are listed in the repository:
 👉 See Contributors Section on GitHub
