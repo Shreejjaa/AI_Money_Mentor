@@ -107,4 +107,6 @@ http://127.0.0.1:3002
 
 ## 👩‍💻 Built By
 
-Riya Behera and Shreeja Sarkar
+Shreeja Sarkar
+Riya Behera
+Sneha Basak
