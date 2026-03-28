@@ -76,9 +76,8 @@ AI_money_mentor/
 │   ├── index.html
 │   ├── script.js
 │   ├── style.css
-│   ├── README.md
-│   └── .env
-│
+|
+├── .env
 └── README.md (optional but recommended at root)
 ```
 ## 🚀 Setup Instructions
