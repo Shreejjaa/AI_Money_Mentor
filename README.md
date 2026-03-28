@@ -58,12 +58,23 @@ backend/
   agents/
     advisor.py
     analyzer.py
-    fire_planner.py
-    tax_wizard.py
+    budget_analyzer.py
     couple_planner.py
+    fire_planner.py
+    health.py
+    life_event_advisor.py
+    planner.py
+    risk.py
+    tax_wizard.py
+  app.py
+  requirements.txt
+    
 frontend/
   index.html
   script.js
+  style.css
+  README.md
+  .env
 ```
 
 ## 🚀 Setup Instructions
