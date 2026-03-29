@@ -53,9 +53,11 @@ document.getElementById("result").innerHTML = `
 
 <h3> Monthly SIP: ₹${data.plan.monthly_sip}</h3>
 
-<canvas id="chart"></canvas>
+<div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
 
-<p><b> Advice:</b> ${data.advice}</p>
+<p><b>AI Advice:</b> ${data.advice}</p>
 `;
 
 /*  Chart */
@@ -72,6 +74,10 @@ data.plan.allocation.debt,
 data.plan.allocation.gold
 ]
 }]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false
 }
 });
 
