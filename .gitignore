@@ -1,11 +1,15 @@
-# Python cache
+# Python
 __pycache__/
 *.pyc
 
 # Environment variables
 .env
 
-# Optional (good practice)
+# Virtual environment
 venv/
+
+# Frontend
 node_modules/
+
+# OS files
 .DS_Store
