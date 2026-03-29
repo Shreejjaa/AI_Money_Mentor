@@ -51,13 +51,13 @@ document.getElementById("result").innerHTML = `
 <p><b>Expenses:</b> ₹${data.analysis.expenses}</p>
 <p><b>Savings:</b> ₹${data.analysis.savings}</p>
 
-<h3> Monthly SIP: ₹${data.plan.monthly_sip}</h3>
+<h3><br>Monthly SIP: ₹${data.plan.monthly_sip}</h3>
 
 <div class="chart-container">
     <canvas id="chart"></canvas>
 </div>
 
-<p><b>AI Advice:</b> ${data.advice}</p>
+<p><b><br>AI Advice:</b><br>${data.advice.replace(/\n/g,'</br>')}</p>
 `;
 
 /*  Chart */
@@ -87,7 +87,6 @@ document.getElementById("result").innerHTML =
 }
 
 }
-
 /* =========================
 AI CHAT (PREMIUM STYLE)
 ========================= */
@@ -167,7 +166,14 @@ debt:document.getElementById("eventDebt").value
 const data = await res.json();
 
 document.getElementById("lifeEventResult").innerHTML =
-`<p>${data.advice}</p>`;
+document.getElementById("lifeEventResult").innerHTML = `
+
+<h3><br>Life Event Plan: ${data.event.toUpperCase()}</h3>
+
+
+<p>${data.advice.replace(/\n/g,'</br>')}</p>
+
+`;
 
 }catch{
 document.getElementById("lifeEventResult").innerHTML =
@@ -198,8 +204,24 @@ deductions:document.getElementById("deductions").value
 const data = await res.json();
 
 document.getElementById("taxResult").innerHTML =
-`<p>${data.advice}</p>`;
+document.getElementById("taxResult").innerHTML = `
 
+<h3><br>Tax Summary</h3>
+<p>
+Annual Income: ₹${data.annual_income}
+</p>
+
+<h3><br>Old vs New Regime</h3>
+<p>
+Old Regime Tax: ₹${data.tax_old} <br>
+New Regime Tax: ₹${data.tax_new} <br>
+Best Option: <b>${data.best_regime}</b>
+</p>
+
+<h3><br>AI Tax Advice</h3>
+<p>${data.advice}</p>
+
+`;
 }catch{
 document.getElementById("taxResult").innerHTML =
 "<p style='color:red;'>Error fetching tax advice</p>";
@@ -212,8 +234,9 @@ COUPLE PLANNER
 ========================= */
 async function couplePlanner(){
 
-document.getElementById("coupleResult").innerHTML =
-"<p class='loading'>Analyzing couple finances...</p>";
+const resultBox = document.getElementById("coupleResult");
+
+resultBox.innerHTML = "<p class='loading'>Analyzing couple finances...</p>";
 
 try{
 
@@ -221,20 +244,41 @@ const res = await fetch(`${BASE_URL}/couple-plan`,{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
-income1:document.getElementById("income1").value,
-income2:document.getElementById("income2").value,
-expenses:document.getElementById("coupleExpenses").value
+income1: Number(document.getElementById("income1").value),
+income2: Number(document.getElementById("income2").value),
+expenses: Number(document.getElementById("coupleExpenses").value)
 })
 });
 
 const data = await res.json();
 
-document.getElementById("coupleResult").innerHTML =
-`<p>${data.advice}</p>`;
+console.log(data); // DEBUG
 
-}catch{
-document.getElementById("coupleResult").innerHTML =
+resultBox.innerHTML = `
+
+<h3><br>Couple Financial Summary</h3>
+<p>
+Total Income: ₹${data.total_income} <br>
+Expenses: ₹${data.expenses} <br>
+Surplus: ₹${data.surplus}
+</p>
+
+<h3><br>Contribution Split</h3>
+<p>
+Partner 1: ₹${data.contrib1} (${data.ratio1}%) <br>
+Partner 2: ₹${data.contrib2} (${data.ratio2}%)
+</p>
+
+<h3><br>AI Financial Plan</h3>
+<p>${data.advice}</p>
+
+`;
+
+}catch(error){
+
+resultBox.innerHTML =
 "<p style='color:red;'>Error fetching plan</p>";
+
 }
 
 }
@@ -271,23 +315,33 @@ const data = await res.json();
 
 resultBox.innerHTML = `
 
-<h3> Portfolio Summary</h3>
+<h3><br>Portfolio Summary</h3>
 
-<p><b>Total Investment:</b> ₹${data.total_investment}</p>
+<p>Total Investment: ₹${data.total_investment}</p>
+<p>Current Value: ₹${data.current_value}</p>
+<p>Profit / Loss: ₹${data.profit}</p>
 
-<p><b>Current Value:</b> ₹${data.current_value}</p>
+<h3><br>Returns Analysis</h3>
+<p>
+XIRR: ${data.xirr}% <br>
+Benchmark (NIFTY 50): ${data.benchmark_return}% <br>
+Performance: ${data.performance}
+</p>
 
-<p><b>Profit / Loss:</b> ₹${data.profit}</p>
+<h3><br>Asset Allocation</h3>
+<p>
+Equity: ₹${data.equity_value}<br>
+Debt: ₹${data.debt_value}<br>
+Diversification Score: ${data.diversification_score}/100
+</p>
 
-<h3> Asset Allocation</h3>
+<h3><br>Portfolio Health Checks</h3>
+<p>
+Overlap: ${data.overlap}% <br>
+Expense Ratio Impact: ₹${data.expense_impact}/year
+</p>
 
-<p>Equity: ₹${data.equity_value}</p>
-
-<p>Debt: ₹${data.debt_value}</p>
-
-<p>Diversification Score: ${data.diversification_score}/100</p>
-
-<h3> AI Portfolio Advice</h3>
+<h3><br>AI Portfolio Advice</h3>
 
 <p>${data.advice}</p>
 

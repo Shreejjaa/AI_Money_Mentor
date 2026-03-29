@@ -93,7 +93,6 @@ def generate_plan_api():
             "error": str(e)
         }), 500
 
-
 # ------------------------------------------------
 # AI Financial Mentor Chat
 # ------------------------------------------------
@@ -180,15 +179,23 @@ def life_event_api():
 
     data = request.get_json()
 
-    event = data.get("event")
-    income = float(data.get("income", 0))
-    savings = float(data.get("savings", 0))
-    debt = float(data.get("debt", 0))
+    try:
+        event = data.get("event")
+        income = float(data.get("income", 0))
+        savings = float(data.get("savings", 0))
+        debt = float(data.get("debt", 0))
+    except:
+        return jsonify({
+            "error": "Invalid input data"
+        }), 400
 
     advice = life_event_advice(event, income, savings, debt)
 
     return jsonify({
         "event": event,
+        "income": income,
+        "savings": savings,
+        "debt": debt,
         "advice": advice
     })
 
@@ -203,19 +210,14 @@ def tax_wizard_api():
     salary = float(data.get("salary", 0))
     deductions = float(data.get("deductions", 0))
 
-    advice = tax_advice(salary, deductions)
+    result = tax_advice(salary, deductions)
 
-    return jsonify({
-        "salary": salary,
-        "deductions": deductions,
-        "advice": advice
-    })
-
+    return jsonify(result)
 # -----------------------------
 # Couple Financial Planner
 # -----------------------------
 @app.route("/couple-plan", methods=["POST"])
-def couple_plan_api():
+def couple_plan():
 
     data = request.get_json()
 
@@ -223,13 +225,9 @@ def couple_plan_api():
     income2 = float(data.get("income2", 0))
     expenses = float(data.get("expenses", 0))
 
-    advice = couple_finance_advice(income1, income2, expenses)
+    result = couple_finance_advice(income1, income2, expenses)
 
-    return jsonify({
-        "combined_income": income1 + income2,
-        "expenses": expenses,
-        "advice": advice
-    })
+    return jsonify(result)
 # -----------------------------
 # MF Portfolio X-Ray
 # -----------------------------
