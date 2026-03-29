@@ -1,12 +1,12 @@
-# 💰 AI Money Mentor (India)
+AI Money Mentor (India)
 
 An AI-powered personal finance mentor designed to make financial planning as simple as using WhatsApp.
 
-## 🚨 Problem
+Problem
 
 95% of Indians lack a structured financial plan. Traditional financial advisors charge ₹25,000+ annually and primarily serve High Net-Worth Individuals (HNIs), leaving the majority underserved.
 
-## 💡 Solution
+Solution
 
 AI Money Mentor democratizes financial advice by providing:
 
@@ -14,7 +14,7 @@ AI Money Mentor democratizes financial advice by providing:
 * Real-time AI guidance
 * Simple, beginner-friendly insights
 
-## ⚙️ Tech Stack
+Tech Stack
 
 * **Backend:** Flask, Flask-CORS
 * **AI Engine:** Google Gemini API
@@ -22,38 +22,37 @@ AI Money Mentor democratizes financial advice by providing:
 * **Frontend:** HTML, CSS, JavaScript
 * **Environment:** Python-dotenv
 
-## 🧠 Features
+Features
 
-### 📊 Money Health Score
+Money Health Score
 
 * Evaluates financial health across 6 dimensions
 * Provides actionable suggestions
 
-### 🔥 FIRE Planner
+FIRE Planner
 
 * Calculates retirement corpus
 * Suggests monthly SIP investment
 
-### 💡 Life Advisor
+Life Advisor
 
 * AI guidance for life events (bonus, marriage, etc.)
 
-### 🧾 Tax Wizard
+Tax Wizard
 
 * Compares old vs new tax regimes
 * Suggests deductions
 
-### ❤️ Couple Planner
+Couple Planner
 
 * Joint financial optimization
 
-### 🤖 AI Chat
+AI Chat
 
 * Conversational financial assistant
 
-## 🏗️ Project Structure
+Project Structure
 
-```
 AI_money_mentor/
 │
 ├── backend/
@@ -79,49 +78,38 @@ AI_money_mentor/
 |
 ├── .env
 └── README.md (optional but recommended at root)
-```
-## 🚀 Setup Instructions
+
+Setup Instructions
 
 1. Clone the repo:
 
-```
-git clone https://github.com/your-username/ai-money-mentor.git
-```
+git clone https://github.com/Shreejjaa/AI_Money_Mentor.git
 
 2. Install dependencies:
 
-```
 pip install -r requirements.txt
-```
 
 3. Add `.env` file:
 
-```
 GEMINI_API_KEY=your_api_key
-```
 
 4. Run Flask:
 
-```
 python app.py
-```
 
-5. Open in browser:
+5. Open in Live Server:
 
-```
-http://127.0.0.1:3002
-```
+(http://127.0.0.1:5500/frontend/index.html)
 
-## 🎯 Future Improvements
+Future Improvements
 
-* Portfolio X-Ray (CAMS parsing)
 * Graph visualizations
 * User login & memory
 * Mobile app version
 
-## 👥 Team
+Team
 
 This project was built for ET Gen AI Hackathon by a collaborative team.
 
 Contributors are listed in the repository:
-👉 See Contributors Section on GitHub
+See Contributors Section on GitHub
